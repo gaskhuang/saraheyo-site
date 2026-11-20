@@ -1,22 +1,22 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-brand="goglobal">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- 預覽階段先不讓搜尋引擎收錄；內容定稿、正式上線時刪掉這一行 -->
   <meta name="robots" content="noindex, nofollow">
-  <title>SaRa HeYo | Asia-to-U.S. Brand Distribution</title>
-  <meta name="description" content="SaRa HeYo brings Asian food, beauty and lifestyle brands into every tier of U.S. retail, with FDA compliance, import, logistics and creator marketing handled end to end.">
-  <meta property="og:title" content="SaRa HeYo | Asia-to-U.S. Brand Distribution">
-  <meta property="og:description" content="Bridging Asia's finest brands to every corner of the U.S. market.">
-  <meta property="og:image" content="assets/logo.png">
-  <link rel="icon" href="assets/favicon.png">
+  <title>GoGlobal Partners | Asia-to-U.S. Brand Distribution</title>
+  <meta name="description" content="GoGlobal Partners brings Asian food, beauty and lifestyle brands into every tier of U.S. retail, with FDA compliance, import, logistics and creator marketing handled end to end.">
+  <meta property="og:title" content="GoGlobal Partners | Asia-to-U.S. Brand Distribution">
+  <meta property="og:description" content="Your curious partners in global markets.">
+  <meta property="og:image" content="assets/og-goglobal.jpg">
+  <link rel="icon" id="favicon" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Libre+Baskerville:wght@400;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Organization","name":"SaRa HeYo","email":"sarah@saraheyo.com","logo":"assets/logo.png"}
+  {"@context":"https://schema.org","@type":"Organization","name":"GoGlobal Partners","slogan":"Your curious partners in global markets.","email":"sarah@saraheyo.com","logo":"assets/goglobal-mark.png"}
   </script>
 </head>
 <body>
@@ -24,14 +24,18 @@
 <!-- ============ HEADER ============ -->
 <header class="site-header" id="top">
   <div class="container header-inner">
-    <a href="#home" class="brand" aria-label="SaRa HeYo">
+    <a href="#home" class="brand only-goglobal" aria-label="GoGlobal Partners">
+      <img src="assets/goglobal-mark-sm.png" alt="" width="94" height="44">
+      <span>GoGlobal <b>Partners</b></span>
+    </a>
+    <a href="#home" class="brand only-saraheyo" aria-label="SaRa HeYo">
       <img src="assets/logo.png" alt="" width="44" height="44">
       <span>SaRa HeYo</span>
     </a>
     <nav class="main-nav" id="mainNav" aria-label="Main">
-      <a href="#services" data-i18n="nav.services">Services</a>
+      <a href="#channels" data-i18n="nav.channels">Channels</a>
       <a href="#why-us" data-i18n="nav.why">Why Us</a>
-      <a href="#showcase" data-i18n="nav.brands">Brands &amp; Channels</a>
+      <a href="#services" data-i18n="nav.services">What We Can Do</a>
       <a href="#contact" data-i18n="nav.contact">Contact</a>
     </nav>
     <div class="header-actions">
@@ -49,24 +53,13 @@
 
 <main>
 
-<!-- ============ ① HERO ============ -->
+<!-- ============ ① HERO：我們是誰 ============ -->
 <section class="hero" id="home">
   <div class="container hero-inner">
     <div class="hero-copy">
-      <p class="eyebrow" data-i18n="hero.eyebrow">ASIA-TO-U.S. BRAND DISTRIBUTION</p>
+      <p class="hero-badge" data-i18n="hero.eyebrow">ASIA-TO-U.S. BRAND DISTRIBUTION</p>
       <h1 data-i18n-html="hero.h1">Bridging Asia's Finest Brands to <span class="accent">Every Corner</span> of the U.S. Market.</h1>
       <p class="hero-sub" data-i18n="hero.sub">End-to-end distribution for Asian brands, from boutique stores in NYC and convenience hubs in Texas to national warehouse clubs.</p>
-      <div class="hero-ctas">
-        <div class="cta-item">
-          <a href="#contact" class="btn btn-primary btn-lg" data-contact-type="brand" data-i18n="hero.cta1">Partner With Us</a>
-          <small data-i18n="hero.cta1cap">For Asian Brands</small>
-        </div>
-        <div class="cta-item">
-          <a href="#contact" class="btn btn-outline btn-lg" data-contact-type="retailer" data-i18n="hero.cta2">Source Products</a>
-          <small data-i18n="hero.cta2cap">For U.S. Retailers</small>
-        </div>
-      </div>
-      <p class="hero-trust" data-i18n="hero.trust">Sourcing from 7 Asian markets · Serving retailers coast to coast</p>
     </div>
     <div class="hero-map" id="heroMap" role="img" data-i18n-aria="map.alt"
          aria-label="Animated map showing product routes from seven Asian markets across the Pacific to distribution hubs in New York, Texas, and California."></div>
@@ -90,29 +83,112 @@
         <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M17 6h14v12H17zM6 22h16v14H6zM26 22h16v14H26z"/><path d="M22 6v5M12 22v5M34 22v5"/></svg>
         <div class="metric-num"><span class="count" data-target="1000">1,000</span><span class="plus">+</span></div>
         <h3 data-i18n="m.l1">Products</h3>
-        <p data-i18n="m.d1">Food, beverage, and beauty SKUs sourced from 7 Asian markets.</p>
       </div>
       <div class="metric">
         <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="17" cy="14" r="7"/><path d="M5 38c0-7 5-12 12-12 3 0 5 1 7 2"/><rect x="26" y="26" width="18" height="13" rx="3"/><path d="M33 30l5 2.5-5 2.5z"/></svg>
         <div class="metric-num"><span class="count" data-target="500">500</span><span class="plus">+</span></div>
         <h3 data-i18n="m.l2">Creators</h3>
-        <p data-i18n="m.d2">U.S. KOLs and KOCs building buzz for new launches.</p>
       </div>
       <div class="metric">
         <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 18l4-10h28l4 10"/><path d="M6 18c0 3 2 5 4.5 5S15 21 15 18c0 3 2 5 4.5 5S24 21 24 18c0 3 2 5 4.5 5S33 21 33 18c0 3 2 5 4.5 5S42 21 42 18"/><path d="M9 23v17h30V23"/><path d="M18 40V30h8v10"/><rect x="30" y="29" width="5" height="5"/></svg>
         <div class="metric-num"><span class="count" data-target="3000">3,000</span><span class="plus">+</span></div>
         <h3 data-i18n="m.l3">Retail Locations</h3>
-        <p data-i18n="m.d3">From independent boutiques to national chains.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ ③ CORE SERVICES ============ -->
+<!-- ============ ③ CHANNELS：通路層級＋通路照片＋合作通路 Logo ============ -->
+<section class="channels" id="channels">
+  <div class="container">
+    <header class="section-head center">
+      <p class="eyebrow" data-i18n="ch.eyebrow">OUR CHANNELS</p>
+      <h2 data-i18n="ch.h2">From Neighborhood Boutiques to National Chains.</h2>
+      <p data-i18n="ch.intro">See where our products sell and the retailers we work with across the U.S.</p>
+    </header>
+
+    <ol class="tiers">
+      <li class="tier t1" style="--img:url(assets/img/ch-1.jpg)">
+        <div class="tier-body"><span class="tier-no">01</span><strong data-i18n="ch.t1t">NYC Boutiques</strong><span data-i18n="ch.t1d">Curated specialty and lifestyle stores in New York City.</span></div>
+      </li>
+      <li class="tier t2" style="--img:url(assets/img/ch-2.jpg)">
+        <div class="tier-body"><span class="tier-no">02</span><strong data-i18n="ch.t2t">Texas Gas Stations &amp; C-Stores</strong><span data-i18n="ch.t2d">High-traffic convenience chains across Texas.</span></div>
+      </li>
+      <li class="tier t3" style="--img:url(assets/img/ch-3.jpg)">
+        <div class="tier-body"><span class="tier-no">03</span><strong data-i18n="ch.t3t">Regional &amp; Specialty Retail Chains</strong><span data-i18n="ch.t3d">Grocery and specialty chains serving regional markets.</span></div>
+      </li>
+      <li class="tier t4" style="--img:url(assets/img/ch-4.jpg)">
+        <div class="tier-body"><span class="tier-no">04</span><strong data-i18n="ch.t4t">National Retail Chains</strong><span data-i18n="ch.t4d">Warehouse clubs and big-box retailers nationwide.</span></div>
+      </li>
+    </ol>
+
+    <div class="partners">
+      <h3 class="sub-head" data-i18n="ch.partners">Our Retail Partners</h3>
+      <!-- 合作通路 Logo：換成實際授權的 Logo 圖檔 -->
+      <div class="logo-wall">
+        <div class="logo-slot"></div><div class="logo-slot"></div><div class="logo-slot"></div>
+        <div class="logo-slot"></div><div class="logo-slot"></div><div class="logo-slot"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ④ WHAT WE CARRY：主力品類 ============ -->
+<section class="products" id="products">
+  <div class="container">
+    <header class="section-head center">
+      <p class="eyebrow" data-i18n="p.eyebrow">PRODUCT CATEGORIES</p>
+      <h2 data-i18n="p.h2">What We Carry</h2>
+    </header>
+    <div class="cat-grid">
+      <article class="cat-tile" style="--img:url(assets/img/cat-1.jpg)"><h3 data-i18n="p.cat1">Asian Food &amp; Beverage</h3></article>
+      <article class="cat-tile" style="--img:url(assets/img/cat-2.jpg)"><h3 data-i18n="p.cat2">Asian Skincare &amp; Beauty</h3></article>
+      <article class="cat-tile" style="--img:url(assets/img/cat-3.jpg)"><h3 data-i18n="p.cat3">Asian Pet Supplies</h3></article>
+      <article class="cat-tile" style="--img:url(assets/img/cat-4.jpg)"><h3 data-i18n="p.cat4">Asian Home &amp; Household Essentials</h3></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ⑤ WHY US ============ -->
+<section class="why" id="why-us">
+  <div class="container">
+    <header class="section-head center">
+      <p class="eyebrow" data-i18n="w.eyebrow">WHY PARTNER WITH US</p>
+      <h2 data-i18n="w.h2">Built for Both Sides of the Shelf.</h2>
+      <p data-i18n="w.intro">Whether you make the product or stock it, we take the friction out of moving goods from Asia to U.S. shelves.</p>
+    </header>
+    <div class="why-grid">
+      <article class="why-panel light">
+        <span class="tag" data-i18n="w.tagA">For Asian Brands</span>
+        <h3 data-i18n="w.h3A">Frictionless Entry into the Mainstream U.S. Market.</h3>
+        <p class="lead" data-i18n="w.leadA">You focus on the product. We open the doors, handle the paperwork, and build the buzz.</p>
+        <ul class="checks">
+          <li><strong data-i18n="w.a1t">Full-Tier Channel Coverage</strong><span data-i18n="w.a1d">Reach every level of U.S. retail through one partner: New York boutiques, Texas gas station and convenience chains, regional grocers, and national warehouse clubs.</span></li>
+          <li><strong data-i18n="w.a2t">Turnkey Compliance &amp; Logistics</strong><span data-i18n="w.a2d">Our specialists manage FDA registration, label review, customs clearance, and nationwide warehousing and fulfillment, so you never have to navigate U.S. import rules alone.</span></li>
+          <li><strong data-i18n="w.a3t">500+ Creator Marketing Network</strong><span data-i18n="w.a3d">Tap into our network of 500+ U.S. creators to build social buzz, grow awareness, and drive sell-through from launch day.</span></li>
+        </ul>
+        <a href="#contact" class="btn btn-primary" data-contact-type="brand" data-i18n="w.ctaA">Become a Brand Partner →</a>
+      </article>
+      <article class="why-panel alt">
+        <span class="tag" data-i18n="w.tagB">For U.S. Retailers</span>
+        <h3 data-i18n="w.h3B">One-Stop Sourcing for High-Margin, High-Buzz Asian Products.</h3>
+        <p class="lead" data-i18n="w.leadB">Stock what your shoppers are already searching for, from a single, reliable supplier.</p>
+        <ul class="checks">
+          <li><strong data-i18n="w.b1t">Curated Hits from 7 Asian Markets</strong><span data-i18n="w.b1d">A hand-picked portfolio of shelf-stable foods, beverages, and skincare with proven demand, sourced from Taiwan, Japan, South Korea, Vietnam, Singapore, Malaysia, and Thailand.</span></li>
+          <li><strong data-i18n="w.b2t">Compliant, Ready-to-Ship Inventory</strong><span data-i18n="w.b2d">Every product meets FDA labeling and import requirements and has already cleared U.S. customs, so you get dependable stock without import delays.</span></li>
+          <li><strong data-i18n="w.b3t">Tailored Assortments &amp; Private Label</strong><span data-i18n="w.b3d">We build product mixes around your shoppers, whether you run a curated boutique, a regional C-store chain, or a national big-box retailer, and we offer custom private label programs.</span></li>
+        </ul>
+        <a href="#contact" class="btn btn-alt" data-contact-type="retailer" data-i18n="w.ctaB">Start Sourcing →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ⑥ WHAT WE CAN DO ============ -->
 <section class="services" id="services">
   <div class="container">
     <header class="section-head center">
-      <p class="eyebrow" data-i18n="s.eyebrow">WHAT WE DO</p>
+      <p class="eyebrow" data-i18n="s.eyebrow">WHAT WE CAN DO</p>
       <h2 data-i18n="s.h2">One Partner, From Asian Shelf to American Store.</h2>
       <p data-i18n="s.intro">We handle every step between an Asian brand and a U.S. buyer, so products reach the right shelves faster.</p>
     </header>
@@ -141,117 +217,7 @@
   </div>
 </section>
 
-<!-- ============ ④ WHY US ============ -->
-<section class="why" id="why-us">
-  <div class="container">
-    <header class="section-head center">
-      <p class="eyebrow" data-i18n="w.eyebrow">WHY PARTNER WITH US</p>
-      <h2 data-i18n="w.h2">Built for Both Sides of the Shelf.</h2>
-      <p data-i18n="w.intro">Whether you make the product or stock it, we take the friction out of moving goods from Asia to U.S. shelves.</p>
-    </header>
-    <div class="why-grid">
-      <article class="why-panel light">
-        <span class="tag" data-i18n="w.tagA">For Asian Brands</span>
-        <h3 data-i18n="w.h3A">Frictionless Entry into the Mainstream U.S. Market.</h3>
-        <p class="lead" data-i18n="w.leadA">You focus on the product. We open the doors, handle the paperwork, and build the buzz.</p>
-        <ul class="checks">
-          <li><strong data-i18n="w.a1t">Full-Tier Channel Coverage</strong><span data-i18n="w.a1d">Reach every level of U.S. retail through one partner: New York boutiques, Texas gas station and convenience chains, regional grocers, and national warehouse clubs.</span></li>
-          <li><strong data-i18n="w.a2t">Turnkey Compliance &amp; Logistics</strong><span data-i18n="w.a2d">Our specialists manage FDA registration, label review, customs clearance, and nationwide warehousing and fulfillment, so you never have to navigate U.S. import rules alone.</span></li>
-          <li><strong data-i18n="w.a3t">500+ Creator Marketing Network</strong><span data-i18n="w.a3d">Tap into our network of 500+ U.S. creators to build social buzz, grow awareness, and drive sell-through from launch day.</span></li>
-        </ul>
-        <a href="#contact" class="btn btn-primary" data-contact-type="brand" data-i18n="w.ctaA">Become a Brand Partner →</a>
-      </article>
-      <article class="why-panel dark">
-        <span class="tag" data-i18n="w.tagB">For U.S. Retailers</span>
-        <h3 data-i18n="w.h3B">One-Stop Sourcing for High-Margin, High-Buzz Asian Products.</h3>
-        <p class="lead" data-i18n="w.leadB">Stock what your shoppers are already searching for, from a single, reliable supplier.</p>
-        <ul class="checks">
-          <li><strong data-i18n="w.b1t">Curated Hits from 7 Asian Markets</strong><span data-i18n="w.b1d">A hand-picked portfolio of shelf-stable foods, beverages, and skincare with proven demand, sourced from Taiwan, Japan, South Korea, Vietnam, Singapore, Malaysia, and Thailand.</span></li>
-          <li><strong data-i18n="w.b2t">Compliant, Ready-to-Ship Inventory</strong><span data-i18n="w.b2d">Every product meets FDA labeling and import requirements and has already cleared U.S. customs, so you get dependable stock without import delays.</span></li>
-          <li><strong data-i18n="w.b3t">Tailored Assortments &amp; Private Label</strong><span data-i18n="w.b3d">We build product mixes around your shoppers, whether you run a curated boutique, a regional C-store chain, or a national big-box retailer, and we offer custom private label programs.</span></li>
-        </ul>
-        <a href="#contact" class="btn btn-light" data-contact-type="retailer" data-i18n="w.ctaB">Start Sourcing →</a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============ ⑤ BRANDS & CHANNELS ============ -->
-<section class="showcase" id="showcase">
-  <div class="container">
-    <header class="section-head center">
-      <p class="eyebrow" data-i18n="sc.eyebrow">BRANDS &amp; CHANNELS</p>
-      <h2 data-i18n="sc.h2">From Neighborhood Boutiques to National Chains.</h2>
-      <p data-i18n="sc.intro">See where our products sell, the retailers we work with, and the Asian brands we bring to American shoppers.</p>
-    </header>
-
-    <h3 class="sub-head" data-i18n="sc.tiers">Every Tier of U.S. Retail</h3>
-    <ol class="tiers">
-      <li class="tier t1">
-        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 16l3-8h30l3 8"/><path d="M6 16c0 3 2 5 4.5 5S15 19 15 16c0 3 2 5 4.5 5S24 19 24 16c0 3 2 5 4.5 5S33 19 33 16c0 3 2 5 4.5 5S42 19 42 16"/><path d="M9 21v19h30V21M18 40v-9h8v9"/></svg>
-        <strong data-i18n="sc.t1t">NYC Boutiques</strong><span data-i18n="sc.t1d">Curated specialty and lifestyle stores in New York City.</span>
-      </li>
-      <li class="tier t2">
-        <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="9" y="7" width="18" height="34" rx="2"/><path d="M13 13h10v8H13zM27 17l6 4v13a3 3 0 006 0V20l-4-5"/></svg>
-        <strong data-i18n="sc.t2t">Texas Gas Stations &amp; C-Stores</strong><span data-i18n="sc.t2d">High-traffic convenience chains across Texas.</span>
-      </li>
-      <li class="tier t3">
-        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 9h6l5 22h22l4-15H14"/><circle cx="19" cy="38" r="3"/><circle cx="35" cy="38" r="3"/></svg>
-        <strong data-i18n="sc.t3t">Regional &amp; Specialty Retail Chains</strong><span data-i18n="sc.t3d">Grocery and specialty chains serving regional markets.</span>
-      </li>
-      <li class="tier t4">
-        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M5 18L24 7l19 11v23H5z"/><path d="M13 41V26h22v15M13 31h22M13 36h22"/><path d="M19 17h2M23 17h2M27 17h2"/></svg>
-        <strong data-i18n="sc.t4t">National Retail Chains</strong><span data-i18n="sc.t4d">Warehouse clubs and big-box retailers nationwide.</span>
-      </li>
-    </ol>
-
-    <div class="partners">
-      <h3 class="sub-head" data-i18n="sc.partners">Our Retail Partners</h3>
-      <p class="sub-desc" data-i18n="sc.partnersDesc">Retailers across the U.S. that carry products from our portfolio.</p>
-      <!-- 合作通路 Logo：換成實際授權的 Logo 圖檔 -->
-      <div class="logo-wall">
-        <div class="logo-slot"></div><div class="logo-slot"></div><div class="logo-slot"></div>
-        <div class="logo-slot"></div><div class="logo-slot"></div><div class="logo-slot"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="showcase-tint">
-    <div class="container">
-      <h3 class="sub-head" data-i18n="sc.brands">Brands We Represent</h3>
-      <p class="sub-desc" data-i18n="sc.brandsDesc">Asian brands we've brought to American shelves.</p>
-      <!-- 品牌卡片：圖片與品牌名為示意，上線前換成實際合作品牌 -->
-      <div class="brand-grid">
-        <article class="brand-card">
-          <img src="assets/img/brand-1.jpg" alt="" loading="lazy">
-          <div class="brand-body"><h4 data-i18n="sc.brandName">Brand Name</h4><p>🇹🇼 <span data-i18n="c.tw">Taiwan</span></p><span class="pill" data-i18n="cat.food">Food &amp; Beverage</span></div>
-        </article>
-        <article class="brand-card">
-          <img src="assets/img/brand-2.jpg" alt="" loading="lazy">
-          <div class="brand-body"><h4 data-i18n="sc.brandName">Brand Name</h4><p>🇰🇷 <span data-i18n="c.kr">South Korea</span></p><span class="pill" data-i18n="cat.beauty">Skincare &amp; Beauty</span></div>
-        </article>
-        <article class="brand-card">
-          <img src="assets/img/brand-3.jpg" alt="" loading="lazy">
-          <div class="brand-body"><h4 data-i18n="sc.brandName">Brand Name</h4><p>🇯🇵 <span data-i18n="c.jp">Japan</span></p><span class="pill" data-i18n="cat.food">Food &amp; Beverage</span></div>
-        </article>
-        <article class="brand-card">
-          <img src="assets/img/brand-4.jpg" alt="" loading="lazy">
-          <div class="brand-body"><h4 data-i18n="sc.brandName">Brand Name</h4><p>🇹🇭 <span data-i18n="c.th">Thailand</span></p><span class="pill" data-i18n="cat.pet">Pet Supplies</span></div>
-        </article>
-      </div>
-
-      <h3 class="sub-head carry-head" data-i18n="sc.carry">What We Carry</h3>
-      <div class="cat-grid">
-        <article class="cat-tile" style="--img:url(assets/img/cat-1.jpg)"><div><h4 data-i18n="sc.cat1t">Asian Food &amp; Beverage</h4><p data-i18n="sc.cat1d">Shelf-stable snacks, instant and dry noodles, sauces and seasonings, coffee, and drinks.</p></div></article>
-        <article class="cat-tile" style="--img:url(assets/img/cat-2.jpg)"><div><h4 data-i18n="sc.cat2t">Asian Skincare &amp; Beauty</h4><p data-i18n="sc.cat2d">Best-selling skincare and beauty from Japan, Korea, and Southeast Asia.</p></div></article>
-        <article class="cat-tile" style="--img:url(assets/img/cat-3.jpg)"><div><h4 data-i18n="sc.cat3t">Asian Pet Supplies</h4><p data-i18n="sc.cat3d">Treats and everyday pet care from trusted Asian brands.</p></div></article>
-        <article class="cat-tile" style="--img:url(assets/img/cat-4.jpg)"><div><h4 data-i18n="sc.cat4t">Asian Home &amp; Household Essentials</h4><p data-i18n="sc.cat4d">Everyday home and household goods from Asia's favorite brands.</p></div></article>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ ⑥ CONTACT ============ -->
+<!-- ============ ⑦ CONTACT ============ -->
 <section class="contact" id="contact">
   <div class="container contact-inner">
     <div class="contact-copy">
@@ -386,7 +352,7 @@
       <p class="form-error" id="formError" role="alert" hidden></p>
       <button type="submit" class="btn btn-primary btn-block" data-i18n="f.submit">Send Inquiry</button>
       <div class="form-success" id="formSuccess" role="status" hidden>
-        <svg viewBox="0 0 48 48" width="48" height="48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="#E8F5F4"/><path d="M15 25l6 6 12-13" fill="none" stroke="#2E7F7B" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 48 48" width="48" height="48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="#E7EFE6"/><path d="M15 25l6 6 12-13" fill="none" stroke="#23553A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <p data-i18n="f.success">Thank you! We've received your inquiry and will be in touch within 2 business days.</p>
       </div>
     </form>
@@ -395,20 +361,35 @@
 
 </main>
 
-<!-- ============ FOOTER ============ -->
+<!-- ============ FOOTER：兩家公司 ============ -->
 <footer class="site-footer">
+  <div class="container footer-companies">
+    <div class="company">
+      <span class="company-mark goglobal"><img src="assets/goglobal-mark-sm.png" alt="" width="94" height="44"></span>
+      <div>
+        <h4>GoGlobal Partners</h4>
+        <p class="tagline">Your curious partners in global markets.</p>
+        <a href="mailto:sarah@saraheyo.com">sarah@saraheyo.com</a>
+      </div>
+    </div>
+    <div class="company">
+      <span class="company-mark"><img src="assets/logo.png" alt="" width="52" height="52"></span>
+      <div>
+        <h4>SaRa HeYo</h4>
+        <a href="mailto:sarah@saraheyo.com">sarah@saraheyo.com</a>
+      </div>
+    </div>
+  </div>
   <div class="container footer-inner">
-    <a href="#home" class="brand light"><img src="assets/logo.png" alt="" width="44" height="44"><span>SaRa HeYo</span></a>
     <nav class="footer-nav" aria-label="Footer">
-      <a href="#services" data-i18n="nav.services">Services</a>
+      <a href="#channels" data-i18n="nav.channels">Channels</a>
       <a href="#why-us" data-i18n="nav.why">Why Us</a>
-      <a href="#showcase" data-i18n="nav.brands">Brands &amp; Channels</a>
+      <a href="#services" data-i18n="nav.services">What We Can Do</a>
       <a href="#contact" data-i18n="nav.contact">Contact</a>
     </nav>
-    <a href="mailto:sarah@saraheyo.com" class="footer-mail">sarah@saraheyo.com</a>
   </div>
   <div class="container footer-bottom">
-    <span>© <span id="year">2026</span> SaRa HeYo. <span data-i18n="f.rights">All rights reserved.</span></span>
+    <span>© <span id="year">2026</span> GoGlobal Partners · SaRa HeYo. <span data-i18n="f.rights">All rights reserved.</span></span>
     <span aria-hidden="true">·</span>
     <a href="#privacy" id="privacy" data-i18n="f.privacy">Privacy Policy</a>
   </div>

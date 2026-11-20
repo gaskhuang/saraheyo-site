@@ -11,6 +11,12 @@
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let lang = "en";
+  let brand = "goglobal";
+  let mapLand = null, mapReady = false;
+  const MAP_COLORS = {
+    goglobal: { land: "#C9D6C4", route: "#C7A56B", flow: "#1F5B4E", node: "#2F6B5A", hub: "#1F5B4E", particle: "#B8955A", glow: "#D9BE87" },
+    saraheyo: { land: "#B5D3D0", route: "#42A7A2", flow: "#2E7F7B", node: "#42A7A2", hub: "#2E7F7B", particle: "#2E7F7B", glow: "#42A7A2" }
+  };
   const t = (k) => (I18N[lang] && I18N[lang][k]) ?? I18N.en[k] ?? k;
 
   /* ---------- 語言切換 ---------- */
@@ -20,6 +26,11 @@
   function applyLang(next) {
     lang = I18N[next] ? next : "en";
     document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
+    /* 英文版用 GoGlobal Partners 品牌，繁中版用 SaRa HeYo 品牌 */
+    brand = lang === "zh" ? "saraheyo" : "goglobal";
+    document.documentElement.dataset.brand = brand;
+    const fav = $("#favicon"); if (fav) fav.href = `assets/favicon-${brand}.png`;
+    if (mapReady) drawMap(mapLand);
     document.title = t("meta.title");
     $$("[data-i18n]").forEach(el => { el.textContent = t(el.dataset.i18n); });
     $$("[data-i18n-html]").forEach(el => { el.innerHTML = t(el.dataset.i18nHtml); });
@@ -167,6 +178,7 @@
     const host = $("#heroMap");
     if (!window.d3 || !host) return;
     const d3 = window.d3;
+    const C = MAP_COLORS[brand];
     host.innerHTML = "";
     const proj = d3.geoNaturalEarth1().rotate([167, 0])
       .fitExtent([[8, 8], [W - 8, H - 8]], { type: "MultiPoint", coordinates: [[70, -6], [-64, -6], [70, 56], [-64, 56]] });
@@ -175,10 +187,10 @@
 
     const defs = svg.append("defs");
     defs.append("pattern").attr("id", "dots").attr("width", 7).attr("height", 7).attr("patternUnits", "userSpaceOnUse")
-      .append("circle").attr("cx", 3.5).attr("cy", 3.5).attr("r", 1.6).attr("fill", "#B5D3D0");
+      .append("circle").attr("cx", 3.5).attr("cy", 3.5).attr("r", 1.6).attr("fill", C.land);
     const glow = defs.append("radialGradient").attr("id", "glow");
-    glow.append("stop").attr("offset", "0%").attr("stop-color", "#42A7A2").attr("stop-opacity", .45);
-    glow.append("stop").attr("offset", "100%").attr("stop-color", "#42A7A2").attr("stop-opacity", 0);
+    glow.append("stop").attr("offset", "0%").attr("stop-color", C.glow).attr("stop-opacity", .5);
+    glow.append("stop").attr("offset", "100%").attr("stop-color", C.glow).attr("stop-opacity", 0);
 
     if (land) svg.append("path").datum(land).attr("d", path).attr("fill", "url(#dots)");
 
@@ -189,10 +201,10 @@
     };
     const routes = svg.append("g");
     const addRoute = (d, i) => {
-      routes.append("path").attr("class", "route").attr("d", d);
-      routes.append("path").attr("class", "route-flow").attr("d", d);
+      routes.append("path").attr("class", "route").attr("stroke", C.route).attr("d", d);
+      routes.append("path").attr("class", "route-flow").attr("stroke", C.flow).attr("d", d);
       if (!reduceMotion) {
-        const dot = routes.append("circle").attr("r", 3.2).attr("fill", "#2E7F7B");
+        const dot = routes.append("circle").attr("r", 3.2).attr("fill", C.particle);
         dot.append("animateMotion").attr("dur", `${3 + (i % 3) * .6}s`).attr("repeatCount", "indefinite")
           .attr("begin", `${(i * .37) % 2}s`).attr("path", d);
       }
@@ -201,13 +213,13 @@
     HUBS.forEach((h, i) => addRoute(curve(P, proj(h.c), 50 + i * 12), i + 7));
 
     svg.append("circle").attr("cx", P[0]).attr("cy", P[1]).attr("r", 26).attr("fill", "url(#glow)");
-    svg.append("circle").attr("cx", P[0]).attr("cy", P[1]).attr("r", 4).attr("fill", "#42A7A2");
+    svg.append("circle").attr("cx", P[0]).attr("cy", P[1]).attr("r", 4).attr("fill", C.route);
 
     const node = (o, hub) => {
       const [x, y] = proj(o.c);
       const g = svg.append("g");
-      g.append("circle").attr("class", "pulse").attr("cx", x).attr("cy", y).attr("r", hub ? 9 : 7).attr("fill", hub ? "#2E7F7B" : "#42A7A2").attr("opacity", .5);
-      g.append("circle").attr("cx", x).attr("cy", y).attr("r", hub ? 7 : 5).attr("fill", hub ? "#2E7F7B" : "#42A7A2").attr("stroke", "#fff").attr("stroke-width", 2);
+      g.append("circle").attr("class", "pulse").attr("cx", x).attr("cy", y).attr("r", hub ? 9 : 7).attr("fill", hub ? C.hub : C.node).attr("opacity", .5);
+      g.append("circle").attr("cx", x).attr("cy", y).attr("r", hub ? 7 : 5).attr("fill", hub ? C.hub : C.node).attr("stroke", "#fff").attr("stroke-width", 2);
       g.append("text").attr("class", "map-label" + (hub ? " hub" : "")).attr("x", x + o.dx).attr("y", y + o.dy)
         .attr("text-anchor", o.a).attr("data-map-label", o.key).text(t(o.key));
     };
@@ -217,10 +229,11 @@
 
   function initMap() {
     if (!window.d3) return;
+    mapReady = true;
     drawMap(null); // 先畫路線，陸地資料載入後補上
     fetch("https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/land-110m.json")
       .then(r => r.json())
-      .then(topo => drawMap(window.topojson.feature(topo, topo.objects.land)))
+      .then(topo => { mapLand = window.topojson.feature(topo, topo.objects.land); drawMap(mapLand); })
       .catch(() => { /* 離線時只顯示路線 */ });
   }
 
