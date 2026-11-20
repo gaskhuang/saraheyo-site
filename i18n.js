@@ -37,6 +37,7 @@ window.I18N = {
     "m.l1": "Products",
     "m.l2": "Creators",
     "m.l3": "Retail Locations",
+    "m.d1": "Food, beverage, and beauty SKUs sourced from 7 Asian markets.", "m.d2": "U.S. KOLs and KOCs building buzz for new launches.", "m.d3": "From independent boutiques to national chains.",
 
     "s.eyebrow": "WHAT WE CAN DO", "s.h2": "One Partner, From Asian Shelf to American Store.",
     "s.intro": "We handle every step between an Asian brand and a U.S. buyer, so products reach the right shelves faster.",
@@ -146,6 +147,7 @@ window.I18N = {
     "m.l1": "商品品項",
     "m.l2": "創作者",
     "m.l3": "零售據點",
+    "m.d1": "來自亞洲 7 國的食品、飲品與美妝品項", "m.d2": "為新品做聲量的美國 KOL 與 KOC", "m.d3": "從獨立選品店到全國連鎖",
 
     "s.eyebrow": "我們能為你做的", "s.h2": "一個夥伴，從亞洲貨架到美國門市。",
     "s.intro": "亞洲品牌與美國買家之間的每一步都由我們處理，商品更快上到對的貨架。",

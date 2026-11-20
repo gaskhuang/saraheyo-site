@@ -193,7 +193,8 @@ section { padding: 104px 0; }
 .metric .icon { width: 56px; height: 56px; fill: none; stroke: var(--band-accent); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; margin-bottom: 14px; }
 .metric-num { font-size: clamp(56px, 6.6vw, 92px); font-weight: 800; line-height: 1; font-family: "Inter", sans-serif; letter-spacing: -.03em; font-variant-numeric: tabular-nums; color: var(--band-num); }
 .metric-num .plus { color: var(--band-accent); }
-.metric h3 { font-size: 24px; margin-top: 14px; color: var(--band-text); font-family: var(--font); font-weight: 700; }
+.metric h3 { font-size: 24px; margin: 14px 0 8px; color: var(--band-text); font-family: var(--font); font-weight: 700; }
+.metric p { color: var(--band-sub); max-width: 22em; margin: 0 auto; }
 
 /* ===== Channels ===== */
 .sub-head { font-size: 26px; margin-bottom: 22px; }
