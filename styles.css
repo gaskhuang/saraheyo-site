@@ -148,9 +148,21 @@ html[data-brand="goglobal"] .hero h1 .accent { color: #A8874F; }
 .hero-map svg { width: 100%; height: 100%; }
 .map-label { font: 600 15px var(--font); fill: var(--ink); paint-order: stroke; stroke: rgba(255,255,255,.92); stroke-width: 4px; }
 .map-label.hub { font-size: 17px; font-weight: 700; }
-.route { fill: none; stroke-width: 1.6; stroke-linecap: round; opacity: .8; }
-.route-flow { fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-dasharray: 2 14; animation: flow 1.6s linear infinite; }
+.route {
+  fill: none; stroke-width: 1.8; stroke-linecap: round; opacity: .85;
+  stroke-dasharray: var(--len); stroke-dashoffset: var(--len);
+  animation: draw 1.4s ease-out forwards; animation-delay: var(--d, 0s);
+}
+@keyframes draw { to { stroke-dashoffset: 0; } }
+.route-flow {
+  fill: none; stroke-width: 2.6; stroke-linecap: round; stroke-dasharray: 2 14; opacity: 0;
+  animation: flow 1.4s linear infinite, fade-in .6s ease forwards; animation-delay: 0s, calc(var(--d, 0s) + 1.3s);
+}
 @keyframes flow { to { stroke-dashoffset: -32; } }
+@keyframes fade-in { to { opacity: 1; } }
+.map-node { opacity: 0; animation: fade-in .6s ease forwards; animation-delay: var(--d, 0s); }
+.hub-glow { transform-box: fill-box; transform-origin: center; animation: glow 2.6s ease-in-out infinite; }
+@keyframes glow { 50% { transform: scale(1.4); opacity: .55; } }
 .pulse { transform-box: fill-box; transform-origin: center; animation: pulse 2.4s ease-out infinite; }
 @keyframes pulse { 0% { transform: scale(.6); opacity: .7; } 100% { transform: scale(2.6); opacity: 0; } }
 .scroll-cue { position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 2px; color: var(--slate); text-decoration: none; font-size: 14px; }
@@ -380,8 +392,9 @@ input:focus, select:focus, textarea:focus { border-color: var(--primary); outlin
   .cat-tile { min-height: 240px; }
   .company-mark { width: 96px; height: 60px; }
 }
+/* 「減少動態效果」：關掉捲動進場等裝飾動畫，但保留 Hero 地圖動畫（主視覺） */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  *, *::before, *::after { animation: none !important; transition: none !important; }
+  *:not(.hero-map, .hero-map *), *:not(.hero-map *)::before, *:not(.hero-map *)::after { animation: none !important; transition: none !important; }
   .reveal { opacity: 1; transform: none; }
 }

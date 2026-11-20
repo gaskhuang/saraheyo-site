@@ -200,24 +200,30 @@
       return `M${a[0]},${a[1]} Q${mx},${my} ${b[0]},${b[1]}`;
     };
     const routes = svg.append("g");
+    /* 地圖動畫：路線依序畫出 → 光點沿路線流動。地圖是主視覺，不受「減少動態效果」關閉 */
     const addRoute = (d, i) => {
-      routes.append("path").attr("class", "route").attr("stroke", C.route).attr("d", d);
-      routes.append("path").attr("class", "route-flow").attr("stroke", C.flow).attr("d", d);
-      if (!reduceMotion) {
-        const dot = routes.append("circle").attr("r", 3.2).attr("fill", C.particle);
-        dot.append("animateMotion").attr("dur", `${3 + (i % 3) * .6}s`).attr("repeatCount", "indefinite")
-          .attr("begin", `${(i * .37) % 2}s`).attr("path", d);
-      }
+      const delay = i < 7 ? i * 0.12 : 0.9 + (i - 7) * 0.15;   // 亞洲線先畫，再分流到美國
+      const base = routes.append("path").attr("class", "route").attr("stroke", C.route).attr("d", d);
+      const len = base.node().getTotalLength();
+      base.style("--len", len).style("--d", `${delay}s`);
+      routes.append("path").attr("class", "route-flow").attr("stroke", C.flow).attr("d", d).style("--d", `${delay}s`);
+      [0, 1].forEach(k => {
+        const dot = routes.append("circle").attr("class", "particle").attr("r", k ? 2.4 : 3.4).attr("fill", C.particle).attr("opacity", 0);
+        const dur = 2.6 + (i % 3) * 0.5;
+        dot.append("animateMotion").attr("dur", `${dur}s`).attr("repeatCount", "indefinite")
+          .attr("begin", `${delay + 1.5 + k * dur / 2}s`).attr("path", d);
+        dot.append("set").attr("attributeName", "opacity").attr("to", 0.95).attr("begin", `${delay + 1.5 + k * dur / 2}s`);
+      });
     };
     ORIGINS.forEach((o, i) => addRoute(curve(proj(o.c), P, 40 + i * 6), i));
     HUBS.forEach((h, i) => addRoute(curve(P, proj(h.c), 50 + i * 12), i + 7));
 
-    svg.append("circle").attr("cx", P[0]).attr("cy", P[1]).attr("r", 26).attr("fill", "url(#glow)");
+    svg.append("circle").attr("class", "hub-glow").attr("cx", P[0]).attr("cy", P[1]).attr("r", 30).attr("fill", "url(#glow)");
     svg.append("circle").attr("cx", P[0]).attr("cy", P[1]).attr("r", 4).attr("fill", C.route);
 
     const node = (o, hub) => {
       const [x, y] = proj(o.c);
-      const g = svg.append("g");
+      const g = svg.append("g").attr("class", "map-node").style("--d", `${hub ? 1.6 : 0.2}s`);
       g.append("circle").attr("class", "pulse").attr("cx", x).attr("cy", y).attr("r", hub ? 9 : 7).attr("fill", hub ? C.hub : C.node).attr("opacity", .5);
       g.append("circle").attr("cx", x).attr("cy", y).attr("r", hub ? 7 : 5).attr("fill", hub ? C.hub : C.node).attr("stroke", "#fff").attr("stroke-width", 2);
       g.append("text").attr("class", "map-label" + (hub ? " hub" : "")).attr("x", x + o.dx).attr("y", y + o.dy)
